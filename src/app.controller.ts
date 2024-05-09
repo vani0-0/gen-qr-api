@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,7 +10,7 @@ export class AppController {
         return this.appService.getHello();
     }
 
-    @Get('generate')
+    @Post('generate')
     async generateQR(@Body() body: { text: string }) {
         return await this.appService.generateQR(body.text);
     }
